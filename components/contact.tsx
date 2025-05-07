@@ -87,7 +87,7 @@ export default function Contact() {
                 </div>
                 <div className="mt-4">
                   <h3 className="text-lg font-semibold text-white mb-2">Phone</h3>
-                  <p className="text-blue-500">+1 (555) 123-4567</p>
+                  <p className="text-blue-500">+27 (68) 137-0669</p>
                 </div>
               </div>
 
@@ -97,7 +97,7 @@ export default function Contact() {
                 </div>
                 <div className="mt-4">
                   <h3 className="text-lg font-semibold text-white mb-2">Email</h3>
-                  <p className="text-blue-500">contact@example.com</p>
+                  <p className="text-blue-500">denzelselokela@gmail.com</p>
                 </div>
               </div>
 
@@ -109,7 +109,7 @@ export default function Contact() {
                   <h3 className="text-lg font-semibold text-white mb-2">Social Media</h3>
                   <div className="flex gap-4">
                     <a
-                      href="https://github.com"
+                      href="https://github.com/DenzelSE"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-blue-500 hover:text-blue-400"
@@ -117,7 +117,7 @@ export default function Contact() {
                       GitHub
                     </a>
                     <a
-                      href="https://linkedin.com"
+                      href="https://www.linkedin.com/in/denzel-selokela/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-blue-500 hover:text-blue-400"

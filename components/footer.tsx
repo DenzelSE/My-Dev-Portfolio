@@ -57,7 +57,7 @@ export default function Footer() {
               <h3 className="text-white font-semibold mb-4">Connect</h3>
               <div className="flex space-x-4">
                 <motion.a
-                  href="https://github.com"
+                  href="https://github.com/DenzelSE"
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ y: -3 }}
@@ -66,7 +66,7 @@ export default function Footer() {
                   <Github className="w-5 h-5" />
                 </motion.a>
                 <motion.a
-                  href="https://linkedin.com"
+                  href="https://www.linkedin.com/in/denzel-selokela/"
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ y: -3 }}
@@ -75,7 +75,7 @@ export default function Footer() {
                   <Linkedin className="w-5 h-5" />
                 </motion.a>
                 <motion.a
-                  href="mailto:contact@example.com"
+                  href="mailto:denzelselokela@gmail.com"
                   whileHover={{ y: -3 }}
                   className="w-10 h-10 bg-[#131c31] rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:bg-blue-900/50 transition-colors"
                 >

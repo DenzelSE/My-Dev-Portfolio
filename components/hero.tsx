@@ -115,7 +115,7 @@ export default function Hero() {
             transition={{ duration: 0.5, delay: 0.6 }}
             className="flex gap-4 mt-8"
           >
-            <Link href="https://github.com" target="_blank" rel="noopener noreferrer">
+            <Link href="https://github.com/DenzelSE" target="_blank" rel="noopener noreferrer">
               <Button
                 variant="ghost"
                 size="icon"
@@ -125,7 +125,7 @@ export default function Hero() {
                 <span className="sr-only">GitHub</span>
               </Button>
             </Link>
-            <Link href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+            <Link href="https://www.linkedin.com/in/denzel-selokela/" target="_blank" rel="noopener noreferrer">
               <Button
                 variant="ghost"
                 size="icon"
@@ -135,7 +135,7 @@ export default function Hero() {
                 <span className="sr-only">LinkedIn</span>
               </Button>
             </Link>
-            <Link href="mailto:contact@example.com">
+            <Link href="mailto:denzelselokela@gmail.com">
               <Button
                 variant="ghost"
                 size="icon"
