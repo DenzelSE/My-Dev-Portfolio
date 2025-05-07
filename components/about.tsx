@@ -54,7 +54,7 @@ export default function About() {
           </motion.p>
 
           <motion.div variants={itemVariants} className="mt-6">
-            <Button
+            {/* <Button
               variant="outline"
               className="border-blue-500 text-blue-500 hover:bg-blue-500/10 flex items-center gap-2"
               asChild
@@ -63,7 +63,7 @@ export default function About() {
                 <Download size={16} />
                 Download CV
               </a>
-            </Button>
+            </Button> */}
           </motion.div>
         </motion.div>
 
@@ -82,8 +82,8 @@ export default function About() {
             </div>
             <h3 className="text-xl font-bold text-white mb-4 text-center">Who I Am</h3>
             <p className="text-gray-400 text-center">
-              I&apos;m a full-stack developer based in San Francisco with 5+ years of experience building products for
-              the web. I have a passion for creating intuitive, dynamic user experiences.
+              I&apos;m a software developer based in Johannesburg with 2+ years of experience free-lancing, building products for
+              the web. I have a passion for creating scalable, dynamic and impactful solutions.I am an enthusiast of cutting-edge technologies such as blockchain and A.I
             </p>
           </motion.div>
 
@@ -96,7 +96,7 @@ export default function About() {
             </div>
             <h3 className="text-xl font-bold text-white mb-4 text-center">What I Do</h3>
             <p className="text-gray-400 text-center">
-              I specialize in building modern web applications using React, Node.js, and TypeScript. I focus on creating
+              I specialize in building modern web applications and scalable applications using React, Next.js, Springboot and TypeScript.  I focus on creating
               clean, efficient, and scalable code that delivers exceptional user experiences.
             </p>
           </motion.div>
@@ -110,8 +110,8 @@ export default function About() {
             </div>
             <h3 className="text-xl font-bold text-white mb-4 text-center">My Experience</h3>
             <p className="text-gray-400 text-center">
-              I&apos;ve worked with startups and established companies alike, helping to build products from the ground
-              up. My experience spans e-commerce, SaaS platforms, and enterprise applications.
+              I&apos;ve worked with startups and co-founded OffConnectX, helping to revolutionize the payment systems in FinTech from the ground
+              up. I am a freelance Technical co-ordinator for Africa's Blockchain Club.
             </p>
           </motion.div>
         </motion.div>

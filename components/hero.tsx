@@ -162,6 +162,8 @@ export default function Hero() {
                   src="/Denzel_Hero_bgremoved.png"
                   alt="Code editor with programming text"
                   className="w-full h-full object-cover"
+                  width={300}
+                  height={500}
                 />
               {/* </div> */}
             </div>
