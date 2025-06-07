@@ -8,15 +8,26 @@ import { Phone, Mail, MessageSquare } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import ParticlesBackground from "./particles-background"
 import BackgroundPattern from "./background-patterns"
+import { initEmailJS, sendContactEmail } from "@/lib/emailjs"
 
 export default function Contact() {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   })
+
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [formStatus, setFormStatus] = useState<{
+    success?: boolean
+    message?: string
+  }>({})
+
+  useEffect(() => {
+    initEmailJS()
+  }, [])
 
   const [formData, setFormData] = useState({
     name: "",
@@ -30,13 +41,38 @@ export default function Contact() {
     setFormData((prev) => ({ ...prev, [name]: value }))
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Handle form submission logic here
-    console.log(formData)
-    // Reset form
-    setFormData({ name: "", email: "", subject: "", message: "" })
-    alert("Message sent successfully!")
+    setIsSubmitting(true)
+    setFormStatus({})
+    try {
+      const result = await sendContactEmail(formData)
+      console.log("results", result)
+
+      if (result.success){
+        setFormStatus({
+          success: true,
+          message: "Your message has been sent successfully! We'll get back to you soon.",
+        })
+        // Reset form
+        setFormData({
+          name: "",
+          email: "",
+          subject: "",
+          message: "",
+        })
+      } else {
+        throw new Error("Failed to send message")
+      }
+    } catch (error) {
+      setFormStatus({
+        success: false,
+        message: "There was an error sending your message. Please try again later.",
+      })
+      console.log(error);
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const containerVariants = {
@@ -192,8 +228,8 @@ export default function Contact() {
                     required
                   />
                 </div>
-                <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700">
-                  Send Message
+                <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700" disabled={isSubmitting}>
+                {isSubmitting ? "Sending..." : "Send Message"}
                 </Button>
               </form>
             </motion.div>

@@ -1,0 +1,44 @@
+import emailjs from "@emailjs/browser"
+
+// Initialize EmailJS with your public key
+export const initEmailJS = () => {
+    // const Pkey = process.env.EMAILJS_PUBLIC_KEY!; 
+    // console.log('public key: ', Pkey)
+  emailjs.init("BadZ2OkPXYtF4dydz")
+}
+
+export type FormData = {
+  name?: string;
+  firstName?: string;
+  lastName?: string;
+  email: string;
+  subject: string;
+  message: string;
+}
+
+// Contact form email
+export const sendContactEmail = async (formData: FormData) => {
+  // const service_id = process.env.EMAILJS_SERVICE_ID!;
+  // const temp_id = process.env.EMAILJS_TEMPLATE_ID!;
+  // console.log("service ID: ", service_id)
+  // console.log("temp_ID: ",temp_id)
+
+    try {
+    const result = await emailjs.send(
+      "service_mmxu68g", 
+      "contact_form",
+
+      {
+        name: formData.name || formData.firstName + " " + formData.lastName,
+        email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+      },
+    )
+    console.log("Emailjs resultss ", result)
+    return { success: true, result }
+  } catch (error) {
+    console.error("Error sending contact email:", error)
+    return { success: false, error }
+  }
+}
