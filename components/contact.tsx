@@ -4,7 +4,7 @@ import type React from "react"
 
 import { motion } from "framer-motion"
 import { useInView } from "react-intersection-observer"
-import { Phone, Mail, MessageSquare } from "lucide-react"
+import { Mail, MessageSquare } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -27,7 +27,7 @@ export default function Contact() {
     success?: boolean
     message?: string
   }>({})
-
+  console.log(formStatus)
   useEffect(() => {
     initEmailJS()
   }, [])

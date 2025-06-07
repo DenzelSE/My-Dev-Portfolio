@@ -25,7 +25,7 @@ export default function StaggerChildren({
     triggerOnce: once,
     threshold,
   })
-
+  console.log(duration)
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {

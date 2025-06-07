@@ -1,11 +1,10 @@
 "use client"
 import { motion } from "framer-motion"
 import { useInView } from "react-intersection-observer"
-import { User, Code, Briefcase, Download } from "lucide-react"
+import { User, Code, Briefcase} from "lucide-react"
 import AnimatedBackground from "./animated-background"
 import FloatingIcons from "./floating-icons"
 import BackgroundPattern from "./background-patterns"
-import { Button } from "@/components/ui/button"
 import ScrollReveal from "./scroll-reveal"
 import StaggerChildren from "./stagger-children"
 import ParallaxLayer from "./parallax-layer"
@@ -106,7 +105,7 @@ export default function About() {
             <h3 className="text-2xl font-bold text-white mb-4 text-center">My Experience</h3>
             <p className="text-gray-400  text-center">
               I&apos;ve worked with startups and co-founded OffConnectX, helping to revolutionize the payment systems in FinTech from the ground
-              up. I am a freelance Technical Co-ordinator and Community Manager for Africa's Blockchain Club.
+              up. I am a freelance Technical Co-ordinator and Community Manager for Africa&apos;s Blockchain Club.
             </p>
           </motion.div>
           </ScrollReveal>
