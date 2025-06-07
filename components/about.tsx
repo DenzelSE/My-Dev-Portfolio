@@ -6,6 +6,9 @@ import AnimatedBackground from "./animated-background"
 import FloatingIcons from "./floating-icons"
 import BackgroundPattern from "./background-patterns"
 import { Button } from "@/components/ui/button"
+import ScrollReveal from "./scroll-reveal"
+import StaggerChildren from "./stagger-children"
+import ParallaxLayer from "./parallax-layer"
 
 export default function About() {
   const [ref, inView] = useInView({
@@ -35,10 +38,13 @@ export default function About() {
   return (
     <section id="about" className="relative py-10 pb-20 bg-[#0c1424] overflow-hidden">
       <AnimatedBackground variant="gradient" />
+      <ParallaxLayer speed={0.2} direction="up">
       <FloatingIcons count={10} className="opacity-10" />
+      </ParallaxLayer>
       <BackgroundPattern variant="hexagon" />
 
       <div className="container relative z-10 mx-auto px-4">
+      <ScrollReveal>
         <motion.div
           ref={ref}
           initial="hidden"
@@ -54,13 +60,11 @@ export default function About() {
           </motion.p>
 
         </motion.div>
+        </ScrollReveal>
 
-        <motion.div
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-          variants={containerVariants}
-          className="grid md:grid-cols-3 gap-8"
-        >
+        <StaggerChildren staggerDelay={0.15}>
+          <div className="grid md:grid-cols-3 gap-8">
+            <ScrollReveal direction="left" delay={0.1}>
           <motion.div
             variants={itemVariants}
             className="bg-[#131c31]/80 backdrop-blur-sm p-8 rounded-xl border border-blue-900/30 hover:border-blue-500/30 transition-all duration-300 transform hover:-translate-y-1"
@@ -74,7 +78,9 @@ export default function About() {
               the web. I have a passion for creating scalable, dynamic and impactful solutions.I am an enthusiast of cutting-edge technologies such as blockchain and A.I, I was recognized as part of Top 50 students for Object Oriented Programming at WeThinkCode_.
             </p>
           </motion.div>
+          </ScrollReveal>
 
+          <ScrollReveal direction="right" delay={0.3}>
           <motion.div
             variants={itemVariants}
             className="bg-[#131c31]/80 backdrop-blur-sm p-8 rounded-xl border border-blue-900/30 hover:border-blue-500/30 transition-all duration-300 transform hover:-translate-y-1"
@@ -87,7 +93,9 @@ export default function About() {
             I specialize in building modern web applications and scalable systems using Next.js, Spring Boot, and TypeScript. I focus on creating clean, efficient, and scalable code that delivers exceptional user experiences. I am invested in DevOps tools like Kubernetes, Docker, and cloud platforms to create robust, automated, and reliable deployment pipelines that support high-performing applications at scale.
             </p>
           </motion.div>
+          </ScrollReveal>
 
+          <ScrollReveal direction="right" delay={0.3}>
           <motion.div
             variants={itemVariants}
             className="bg-[#131c31]/80 backdrop-blur-sm p-8 rounded-xl border border-blue-900/30 hover:border-blue-500/30 transition-all duration-300 transform hover:-translate-y-1"
@@ -101,7 +109,9 @@ export default function About() {
               up. I am a freelance Technical Co-ordinator and Community Manager for Africa's Blockchain Club.
             </p>
           </motion.div>
-        </motion.div>
+          </ScrollReveal>
+          </div>
+        </StaggerChildren>
       </div>
     </section>
   )
