@@ -23,7 +23,7 @@ export default function Hero() {
   }
 
   return (
-    <section id="home" className="relative min-h-screen pt-32 pb-20 md:pt-40 md:pb-2 overflow-hidden">
+    <section id="home" className="relative pt-32 pb-20 md:pt-40 md:pb- overflow-hidden">
       {/* Particle background */}
       <ParticlesBackground variant="connect" />
 
@@ -64,7 +64,7 @@ export default function Hero() {
             className="mb-6"
           >
             <EnhancedTypewriter
-              words={["Frontend Developer", "Backend Developer", "Full Stack Developer", "Web3 Developer"]}
+              words={["Support Engineer", "Backend Developer", "Web3 Developer"]}
               typingSpeed={80}
               deletingSpeed={40}
               delayBetweenWords={2000}
@@ -154,7 +154,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.3 }}
           className="md:w-1/2 mt-12 md:mt-0 flex justify-center relative"
         >
-          <div className="relative w-[300px] h-[300px] md:w-[400px] md:h-[500px] overflow-hidden">
+          <div className="relative w-[300px] h-[300px] md:w-[500px] md:h-[600px] overflow-hidden">
             <div className="absolute inset-0 backdrop-blur-3xl "></div>
             <div className="absolute inset-0 flex items-center justify-center">
               {/* <div className="w-[80%] h-[80%] rounded-full overflow-hidden border-4 border-blue-500/30"> */}
@@ -163,7 +163,7 @@ export default function Hero() {
                   alt="Code editor with programming text"
                   className="w-full h-full object-cover"
                   width={300}
-                  height={500}
+                  height={600}
                 />
               {/* </div> */}
             </div>

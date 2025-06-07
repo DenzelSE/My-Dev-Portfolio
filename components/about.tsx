@@ -33,7 +33,7 @@ export default function About() {
   }
 
   return (
-    <section id="about" className="relative py-20 bg-[#0c1424] overflow-hidden">
+    <section id="about" className="relative py-10 bg-[#0c1424] overflow-hidden">
       <AnimatedBackground variant="gradient" />
       <FloatingIcons count={10} className="opacity-10" />
       <BackgroundPattern variant="hexagon" />
@@ -83,7 +83,7 @@ export default function About() {
             <h3 className="text-xl font-bold text-white mb-4 text-center">Who I Am</h3>
             <p className="text-gray-400 text-center">
               I&apos;m a software developer based in Johannesburg with 2+ years of experience free-lancing, building products for
-              the web. I have a passion for creating scalable, dynamic and impactful solutions.I am an enthusiast of cutting-edge technologies such as blockchain and A.I
+              the web. I have a passion for creating scalable, dynamic and impactful solutions.I am an enthusiast of cutting-edge technologies such as blockchain and A.I, I was recognized as part of Top 50 students for Object Oriented Programming at WeThinkCode_.
             </p>
           </motion.div>
 
@@ -96,8 +96,7 @@ export default function About() {
             </div>
             <h3 className="text-xl font-bold text-white mb-4 text-center">What I Do</h3>
             <p className="text-gray-400 text-center">
-              I specialize in building modern web applications and scalable applications using React, Next.js, Springboot and TypeScript.  I focus on creating
-              clean, efficient, and scalable code that delivers exceptional user experiences.
+            I specialize in building modern web applications and scalable systems using Next.js, Spring Boot, and TypeScript. I focus on creating clean, efficient, and scalable code that delivers exceptional user experiences. I am invested in DevOps tools like Kubernetes, Docker, and cloud platforms to create robust, automated, and reliable deployment pipelines that support high-performing applications at scale.
             </p>
           </motion.div>
 
@@ -111,7 +110,7 @@ export default function About() {
             <h3 className="text-xl font-bold text-white mb-4 text-center">My Experience</h3>
             <p className="text-gray-400 text-center">
               I&apos;ve worked with startups and co-founded OffConnectX, helping to revolutionize the payment systems in FinTech from the ground
-              up. I am a freelance Technical co-ordinator for Africa's Blockchain Club.
+              up. I am a freelance Technical Co-ordinator and Community Manager for Africa's Blockchain Club.
             </p>
           </motion.div>
         </motion.div>
