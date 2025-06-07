@@ -81,15 +81,6 @@ export default function Contact() {
 
           <div className="grid md:grid-cols-2 gap-12">
             <motion.div variants={itemVariants} className="space-y-8">
-              <div className="bg-[#131c31]/80 backdrop-blur-sm p-6 rounded-xl border border-blue-900/30 hover:border-blue-500/30 transition-all duration-300 transform hover:-translate-y-1">
-                <div className="w-12 h-12 bg-blue-900/30 rounded-full flex items-center justify-center flex-shrink-0">
-                  <Phone className="w-5 h-5 text-blue-500" />
-                </div>
-                <div className="mt-4">
-                  <h3 className="text-lg font-semibold text-white mb-2">Phone</h3>
-                  <p className="text-blue-500">+27 (68) 137-0669</p>
-                </div>
-              </div>
 
               <div className="bg-[#131c31]/80 backdrop-blur-sm p-6 rounded-xl border border-blue-900/30 hover:border-blue-500/30 transition-all duration-300 transform hover:-translate-y-1">
                 <div className="w-12 h-12 bg-blue-900/30 rounded-full flex items-center justify-center flex-shrink-0">
@@ -123,6 +114,14 @@ export default function Contact() {
                       className="text-blue-500 hover:text-blue-400"
                     >
                       LinkedIn
+                    </a>
+                    <a
+                      href="https://www.youtube.com/@DenzelSE"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-500 hover:text-blue-400"
+                    >
+                      Youtube
                     </a>
                   </div>
                 </div>

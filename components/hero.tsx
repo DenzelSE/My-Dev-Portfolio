@@ -3,7 +3,7 @@
 import { motion } from "framer-motion"
 import Image from 'next/image';
 import { useEffect, useState } from "react"
-import { Github, Linkedin, Mail, Download } from "lucide-react"
+import { Github, Linkedin, Mail, Download, Youtube } from "lucide-react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import ParticlesBackground from "./particles-background"
@@ -102,7 +102,7 @@ export default function Hero() {
               className="border-blue-500 text-blue-500 hover:bg-blue-500/10 flex items-center gap-2"
               asChild
             >
-              <a href="/alex-morgan-cv.pdf" download>
+              <a href="/CV/Denzel Selokela Resume.pdf" download>
                 <Download size={16} />
                 Download CV
               </a>
@@ -132,6 +132,16 @@ export default function Hero() {
                 className="rounded-full text-gray-400 hover:text-white hover:bg-blue-500/20"
               >
                 <Linkedin className="h-5 w-5" />
+                <span className="sr-only">LinkedIn</span>
+              </Button>
+            </Link>
+            <Link href="https://www.youtube.com/@DenzelSE" target="_blank" rel="noopener noreferrer">
+              <Button
+                variant="ghost"
+                size="icon"
+                className="rounded-full text-gray-400 hover:text-white hover:bg-blue-500/20"
+              >
+                <Youtube className="h-5 w-5" />
                 <span className="sr-only">LinkedIn</span>
               </Button>
             </Link>

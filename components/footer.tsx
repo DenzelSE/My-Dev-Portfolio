@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion"
 import Link from "next/link"
-import { Github, Linkedin, Mail } from "lucide-react"
+import { Github, Linkedin, Mail, Youtube } from "lucide-react"
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
@@ -81,13 +81,20 @@ export default function Footer() {
                 >
                   <Mail className="w-5 h-5" />
                 </motion.a>
+                <motion.a
+                  href="https://www.youtube.com/@DenzelSE"
+                  whileHover={{ y: -3 }}
+                  className="w-10 h-10 bg-[#131c31] rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:bg-blue-900/50 transition-colors"
+                >
+                  <Youtube className="w-5 h-5" />
+                </motion.a>
               </div>
             </div>
           </div>
         </div>
 
         <div className="border-t border-blue-900/30 mt-12 pt-8 text-center">
-          <p className="text-gray-400">© {currentYear} Alex Morgan. All rights reserved.</p>
+          <p className="text-gray-400">© {currentYear} Denzel Selokela. All rights reserved.</p>
         </div>
       </div>
     </footer>
