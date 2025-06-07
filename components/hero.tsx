@@ -23,7 +23,7 @@ export default function Hero() {
   }
 
   return (
-    <section id="home" className="relative pt-32 pb-20 md:pt-40 md:pb- overflow-hidden">
+    <section id="home" className="relative pt-32 pb-20 md:pt-30 md:pb-10 overflow-hidden">
       {/* Particle background */}
       <ParticlesBackground variant="connect" />
 
@@ -41,7 +41,7 @@ export default function Hero() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 1 }}
             className="flex items-center mb-4"
           >
             <span className="text-yellow-400 mr-2">👋</span>
@@ -51,7 +51,7 @@ export default function Hero() {
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            transition={{ duration: 1, delay: 0.2 }}
             className="text-5xl md:text-6xl font-bold text-white mb-4"
           >
             Denzel Selokela
@@ -60,12 +60,12 @@ export default function Hero() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
+            transition={{ duration: 1, delay: 0.3 }}
             className="mb-6"
           >
             <EnhancedTypewriter
               words={["Support Engineer", "Backend Developer", "Web3 Developer"]}
-              typingSpeed={80}
+              typingSpeed={100}
               deletingSpeed={40}
               delayBetweenWords={2000}
             />
@@ -74,7 +74,7 @@ export default function Hero() {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
+            transition={{ duration: 2, delay: 0.5 }}
             className="text-gray-400 mb-8 max-w-lg font-serif"
           >
             <span className="text-xl font-medium leading-relaxed relative">
@@ -170,7 +170,7 @@ export default function Hero() {
 
             {/* Animated rings */}
             <motion.div
-              className="absolute inset-0 rounded-full border border-blue-500/20"
+              className="absolute inset-0 rounded-full border border-blue-500/50"
               animate={{
                 scale: [1, 1.1, 1],
                 opacity: [0.1, 0.3, 0.1],
