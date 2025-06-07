@@ -12,6 +12,9 @@ import { useEffect, useState } from "react"
 import ParticlesBackground from "./particles-background"
 import BackgroundPattern from "./background-patterns"
 import { initEmailJS, sendContactEmail } from "@/lib/emailjs"
+import ScrollReveal from "./scroll-reveal"
+import StaggerChildren from "./stagger-children"
+import ParallaxLayer from "./parallax-layer"
 
 export default function Contact() {
   const [ref, inView] = useInView({
@@ -97,9 +100,12 @@ export default function Contact() {
   return (
     <section id="contact" className="relative py-20 overflow-hidden">
       <ParticlesBackground variant="default" className="opacity-30" />
-      <BackgroundPattern variant="wave" />
+      <ParallaxLayer speed={0.4} direction="up">
+        <BackgroundPattern variant="wave" />
+      </ParallaxLayer>
 
       <div className="container relative z-10 mx-auto px-4">
+      <ScrollReveal>
         <motion.div
           ref={ref}
           initial="hidden"
@@ -116,8 +122,9 @@ export default function Contact() {
           </motion.div>
 
           <div className="grid md:grid-cols-2 gap-12">
+          <StaggerChildren staggerDelay={0.15}>
+            <ScrollReveal direction="left" delay={0.1}>
             <motion.div variants={itemVariants} className="space-y-8">
-
               <div className="bg-[#131c31]/80 backdrop-blur-sm p-6 rounded-xl border border-blue-900/30 hover:border-blue-500/30 transition-all duration-300 transform hover:-translate-y-1">
                 <div className="w-12 h-12 bg-blue-900/30 rounded-full flex items-center justify-center flex-shrink-0">
                   <Mail className="w-5 h-5 text-blue-500" />
@@ -127,7 +134,14 @@ export default function Contact() {
                   <p className="text-blue-500">denzelselokela@gmail.com</p>
                 </div>
               </div>
+              </motion.div>
+              </ScrollReveal>
 
+            <ScrollReveal direction="left" delay={0.3}>
+            <motion.div
+                      variants={itemVariants}
+                      className="bg-[#131c31]/80 backdrop-blur-sm p-6 rounded-xl border border-blue-900/30 hover:border-blue-500/30 transition-all duration-300 transform hover:-translate-y-1"
+                    >
               <div className="bg-[#131c31]/80 backdrop-blur-sm p-6 rounded-xl border border-blue-900/30 hover:border-blue-500/30 transition-all duration-300 transform hover:-translate-y-1">
                 <div className="w-12 h-12 bg-blue-900/30 rounded-full flex items-center justify-center flex-shrink-0">
                   <MessageSquare className="w-5 h-5 text-blue-500" />
@@ -163,7 +177,10 @@ export default function Contact() {
                 </div>
               </div>
             </motion.div>
+            </ScrollReveal>
+            </StaggerChildren>
 
+            <ScrollReveal direction="right" delay={0.3}>
             <motion.div variants={itemVariants}>
               <form
                 onSubmit={handleSubmit}
@@ -233,8 +250,10 @@ export default function Contact() {
                 </Button>
               </form>
             </motion.div>
+            </ScrollReveal>
           </div>
         </motion.div>
+      </ScrollReveal>
       </div>
     </section>
   )

@@ -7,6 +7,8 @@ import { Button } from "@/components/ui/button"
 import { ExternalLink, Github } from "lucide-react"
 import AnimatedBackground from "./animated-background"
 import BackgroundPattern from "./background-patterns"
+import ScrollReveal from "./scroll-reveal"
+import ParallaxLayer from "./parallax-layer"
 
 interface Project {
   title: string
@@ -75,9 +77,12 @@ export default function Projects() {
   return (
     <section id="projects" className="relative py-20 bg-[#0c1424] overflow-hidden">
       <AnimatedBackground variant="blueprint" />
-      <BackgroundPattern variant="grid" />
+      <ParallaxLayer speed={0.2} direction="left">
+        <BackgroundPattern variant="grid" />
+      </ParallaxLayer>
 
       <div className="container relative z-10 mx-auto px-4">
+      <ScrollReveal>
         <motion.div
           ref={ref}
           initial="hidden"
@@ -95,6 +100,12 @@ export default function Projects() {
 
           <div className="grid gap-12">
             {projects.map((project, index) => (
+                              <ScrollReveal
+                              key={project.title}
+                              direction={index % 2 === 0 ? "left" : "right"}
+                              delay={index * 0.2}
+                              threshold={0.2}
+                            >
               <motion.div
                 key={project.title}
                 variants={itemVariants}
@@ -166,9 +177,11 @@ export default function Projects() {
                   </div>
                 </div>
               </motion.div>
+              </ScrollReveal>
             ))}
           </div>
 
+          <ScrollReveal direction="up" delay={0.4}>
           <motion.div variants={itemVariants} className="text-center mt-16">
             <a
               href="https://github.com"
@@ -179,7 +192,9 @@ export default function Projects() {
               View More on GitHub
             </a>
           </motion.div>
+          </ScrollReveal>
         </motion.div>
+        </ScrollReveal>
       </div>
     </section>
   )

@@ -10,6 +10,7 @@ import ParticlesBackground from "./particles-background"
 import EnhancedTypewriter from "./enhenced-typewriter"
 import AnimatedCodeBackground from "./animated-code-background"
 import BackgroundPattern from "./background-patterns"
+import ParallaxLayer from "./parallax-layer"
 
 export default function Hero() {
   const [isMounted, setIsMounted] = useState(false)
@@ -31,7 +32,9 @@ export default function Hero() {
       <AnimatedCodeBackground />
 
       {/* Circuit pattern */}
-      <BackgroundPattern variant="circuit" />
+      <ParallaxLayer speed={0.2} direction="up">
+        <BackgroundPattern variant="circuit" />
+      </ParallaxLayer>
 
       {/* Animated gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#0a1020]/80 via-transparent to-[#0a1020]/80 z-0"></div>

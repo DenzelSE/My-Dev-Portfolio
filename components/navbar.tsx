@@ -1,5 +1,7 @@
 "use client"
 
+import type React from "react"
+
 import Link from "next/link"
 import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
@@ -38,6 +40,19 @@ export default function Navbar() {
     { name: "Contact", href: "#contact" },
   ]
 
+  // Smooth scroll function
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault()
+    const targetId = href.replace("#", "")
+    const element = document.getElementById(targetId)
+    if (element) {
+      window.scrollTo({
+        top: element.offsetTop - 80, // Adjust for navbar height
+        behavior: "smooth",
+      })
+    }
+  }
+
   return (
     <motion.header
       initial={{ y: -100 }}
@@ -59,11 +74,21 @@ export default function Navbar() {
             <Link
               key={item.name}
               href={item.href}
-              className={`text-sm font-medium transition-colors hover:text-blue-500 ${
-                activeSection === item.href.substring(1) ? "text-blue-500 border-b-2 border-blue-500" : "text-gray-300"
+              onClick={(e) => handleNavClick(e, item.href)}
+              className={`text-sm font-medium transition-colors hover:text-blue-500 relative ${
+                activeSection === item.href.substring(1) ? "text-blue-500" : "text-gray-300"
               }`}
             >
               {item.name}
+              {activeSection === item.href.substring(1) && (
+                <motion.div
+                  layoutId="activeSection"
+                  className="absolute -bottom-1 left-0 right-0 h-0.5 bg-blue-500"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.3 }}
+                />
+              )}
             </Link>
           ))}
         </nav>

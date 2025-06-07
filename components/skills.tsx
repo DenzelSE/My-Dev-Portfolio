@@ -5,6 +5,9 @@ import { useInView } from "react-intersection-observer"
 import CodeRain from "./code-rain"
 import AnimatedBackground from "./animated-background"
 import BackgroundPattern from "./background-patterns"
+import ParallaxLayer from "./parallax-layer"
+import ScrollReveal from "./scroll-reveal"
+import StaggerChildren from "./stagger-children"
 
 interface Skill {
   name: string
@@ -57,9 +60,12 @@ export default function Skills() {
       <AnimatedBackground variant="code" />
 
       {/* Dots pattern */}
-      <BackgroundPattern variant="dots" />
+      <ParallaxLayer speed={0.3} direction="down">
+        <BackgroundPattern variant="dots" />
+      </ParallaxLayer>
 
       <div className="container relative z-10 mx-auto px-4">
+      <ScrollReveal>
         <motion.div
           ref={ref}
           initial="hidden"
@@ -76,8 +82,10 @@ export default function Skills() {
           </motion.div>
 
           <div className="grid md:grid-cols-2 gap-12">
+          <StaggerChildren staggerDelay={0.1}>
             <div className="space-y-8">
               {skills.map((skill, index) => (
+                <ScrollReveal key={skill.name} delay={index * 0.1} direction="left">
                 <motion.div key={skill.name} variants={itemVariants} custom={index}>
                   <div className="flex justify-between mb-2">
                     <span className="text-white font-medium">{skill.name}</span>
@@ -92,9 +100,12 @@ export default function Skills() {
                     ></motion.div>
                   </div>
                 </motion.div>
+                </ScrollReveal>
               ))}
             </div>
+            </StaggerChildren>
 
+            <StaggerChildren staggerDelay={0.05}>
             <motion.div variants={itemVariants} className="grid grid-cols-3 gap-4">
               {techStack.map((tech, index) => (
                 <motion.div
@@ -109,8 +120,10 @@ export default function Skills() {
                 </motion.div>
               ))}
             </motion.div>
+            </StaggerChildren>
           </div>
 
+          <ScrollReveal direction="up" delay={0.4}>
           <motion.div
             variants={itemVariants}
             className="mt-16 p-6 bg-[#131c31]/80 backdrop-blur-sm rounded-xl border border-blue-900/30 hover:border-blue-500/30 transition-all duration-300"
@@ -131,7 +144,9 @@ export default function Skills() {
               </div>
             </div>
           </motion.div>
+          </ScrollReveal>
         </motion.div>
+        </ScrollReveal>
       </div>
     </section>
   )
