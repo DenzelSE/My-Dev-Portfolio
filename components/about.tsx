@@ -33,7 +33,7 @@ export default function About() {
   }
 
   return (
-    <section id="about" className="relative py-10 pb-10 bg-[#0c1424] overflow-hidden">
+    <section id="about" className="relative py-10 pb-20 bg-[#0c1424] overflow-hidden">
       <AnimatedBackground variant="gradient" />
       <FloatingIcons count={10} className="opacity-10" />
       <BackgroundPattern variant="hexagon" />
