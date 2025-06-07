@@ -1,5 +1,4 @@
 import emailjs from "@emailjs/browser"
-require("dotenv").config();
 
 // Initialize EmailJS with your public key
 export const initEmailJS = () => {
@@ -10,6 +9,8 @@ export const initEmailJS = () => {
 
 export type FormData = {
   name?: string;
+  firstName?: string;
+  lastName?: string;
   email: string;
   subject: string;
   message: string;
@@ -28,7 +29,7 @@ export const sendContactEmail = async (formData: FormData) => {
       temp_id,
 
       {
-        name: formData.name,
+        name: formData.name || formData.firstName + " " + formData.lastName,
         email: formData.email,
         subject: formData.subject,
         message: formData.message,
