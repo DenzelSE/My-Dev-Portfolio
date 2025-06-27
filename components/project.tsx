@@ -44,22 +44,22 @@ export default function Projects() {
 
   const projects: Project[] = [
     {
-      title: "E-Commerce Platform",
+      title: "Africa's Blockchain Club Website",
       description:
-        "A full-featured e-commerce platform with user authentication, product catalog, shopping cart, and payment processing.",
-      image: "/placeholder.svg?height=600&width=800",
-      tags: ["React", "Node.js", "MongoDB", "Stripe"],
-      liveUrl: "#",
-      githubUrl: "#",
+        "Blockchain community website that displays the communities work and activeness in the web3 space",
+      image: "/projects/abc.png",
+      tags: ["Nextjs", "TypeScript", "Python", "Emailjs"],
+      liveUrl: "public/projects/abc.png",
+      githubUrl: "https://github.com/DenzelSE/abcWebsite",
     },
     {
-      title: "Task Management App",
+      title: "Authentication System (Backend)",
       description:
-        "A collaborative task management application with real-time updates, drag-and-drop interface, and team communication features.",
-      image: "/placeholder.svg?height=600&width=800",
+        "A simple Authentication system using Spring boot (Java) for Microservices architecture and Docker to containzerize",
+      image: "/projects/auth.jpeg",
       tags: ["Next.js", "TypeScript", "Prisma", "Socket.io"],
       liveUrl: "#",
-      githubUrl: "#",
+      githubUrl: "https://github.com/DenzelSE/Auth-System-Containerized-",
     },
     {
       title: "AI Content Generator",
