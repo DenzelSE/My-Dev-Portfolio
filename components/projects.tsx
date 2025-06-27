@@ -51,7 +51,7 @@ export default function Projects() {
         "Blockchain community website that displays the communities work and activeness in the web3 space",
       image: "/projects/abc.png",
       tags: ["Nextjs", "TypeScript", "Python", "Emailjs"],
-      liveUrl: "public/projects/abc.png",
+      liveUrl: "https://africasblockchainclub.vercel.app",
       githubUrl: "https://github.com/DenzelSE/abcWebsite",
     },
     {
@@ -70,7 +70,7 @@ export default function Projects() {
       image: "/projects/AA.jpg",
       tags: ["React", "Python", "OpenAI", "FastAPI"],
       liveUrl: "#",
-      githubUrl: "#",
+      githubUrl: "https://github.com/DenzelSE/Account_Abstraction",
     },
   ]
 
