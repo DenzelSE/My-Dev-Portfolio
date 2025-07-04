@@ -183,7 +183,7 @@ export default function Hero() {
 
             {/* Animated rings */}
             <motion.div
-              className="absolute inset-0 rounded-full border border-blue-500/50"
+              className="absolute inset-0 rounded-full border border-blue-500/70"
               animate={{
                 scale: [1, 1.1, 1],
                 opacity: [0.1, 0.3, 0.1],

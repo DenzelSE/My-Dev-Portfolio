@@ -46,10 +46,11 @@ export default function Skills() {
     { name: "Docker", percentage: 70 },
     { name: "Solidity", percentage: 75 },
     { name: "Linux", percentage: 85 },
+    { name: "Kubernetes", percentage: 60 },
 
   ]
 
-  const techStack = ["JavaScript", "TypeScript", "NextJs", "Java", "SpringBoot", "Python", "Tailwind", "Git", "Solidity"]
+  const techStack = ["JavaScript", "TypeScript", "NextJs", "Java", "SpringBoot", "Python", "Tailwind", "Git", "Solidity", "Kubernetes", "Ansible", "Linux", "hardhat", "Bash"]
 
   return (
     <section id="skills" className="relative py-20 overflow-hidden">

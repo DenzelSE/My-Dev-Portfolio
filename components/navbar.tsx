@@ -65,7 +65,7 @@ export default function Navbar() {
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         <Link href="/" className="flex items-center">
           <span className="text-2xl font-bold">
-            <span className="text-blue-500">Dev</span>
+            <span className="text-blue-500">DenzelSE </span>
             <span className="text-white">Portfolio</span>
           </span>
         </Link>

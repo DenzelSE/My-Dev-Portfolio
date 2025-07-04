@@ -89,7 +89,7 @@ export default function About() {
             </div>
             <h3 className="text-2xl font-bold text-white mb-4 text-center">What I Do</h3>
             <p className="text-gray-400  text-center">
-            I specialize in building modern web applications and scalable systems using Next.js, Spring Boot, and TypeScript. I focus on creating clean, efficient, and scalable code that delivers exceptional user experiences. I am invested in DevOps tools like Kubernetes, Docker, and cloud platforms to create robust, automated, and reliable deployment pipelines that support high-performing applications at scale.
+            I specialize in building modern web applications and scalable systems using Next.js, Spring Boot, and Solidity for Smart Contracts in Blockchain. I focus on creating clean, efficient, and scalable code that delivers exceptional user experiences. I am invested in DevOps tools like Kubernetes, Docker, Ansible and cloud platforms to create robust, automated, and reliable deployment pipelines that support high-performing applications at scale.
             </p>
           </motion.div>
           </ScrollReveal>
@@ -104,8 +104,9 @@ export default function About() {
             </div>
             <h3 className="text-2xl font-bold text-white mb-4 text-center">My Experience</h3>
             <p className="text-gray-400  text-center">
+              I&apos;m currently a Support Engineer Intern at LSDOpen. 
               I&apos;ve worked with startups and co-founded OffConnectX, helping to revolutionize the payment systems in FinTech from the ground
-              up. I am a freelance Technical Co-ordinator and Community Manager for Africa&apos;s Blockchain Club.
+              up. I am a freelance Technical Co-ordinator and Community Manager for Africa&apos;s Blockchain Club. 
             </p>
           </motion.div>
           </ScrollReveal>
