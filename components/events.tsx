@@ -241,7 +241,7 @@ export default function Events() {
                   <div className="text-gray-400 text-sm">Events Hosted</div>
                 </div>
                 <div className="bg-[#131c31]/80 backdrop-blur-sm p-6 rounded-xl border border-purple-900/30 text-center">
-                  <div className="text-3xl font-bold text-purple-500 mb-2">25+</div>
+                  <div className="text-3xl font-bold text-amber-500 mb-2">25+</div>
                   <div className="text-gray-400 text-sm">Events Attended</div>
                 </div>
               </motion.div>
