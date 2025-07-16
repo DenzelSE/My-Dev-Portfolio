@@ -6,6 +6,8 @@ import Projects from "@/components/projects"
 import Contact from "@/components/contact"
 import Footer from "@/components/footer"
 import ScrollProgress from "@/components/scroll-progress"
+import Terminal from "@/components/terminal"
+import Events from "@/components/events"
 
 export default function Home() {
   return (
@@ -16,8 +18,10 @@ export default function Home() {
       <About />
       <Projects />
       <Skills />
+      <Events />
       <Contact />
       <Footer />
+      <Terminal />
     </main>
   )
 }
