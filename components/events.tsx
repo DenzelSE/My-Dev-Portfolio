@@ -37,17 +37,17 @@ export default function Events() {
   const events: Event[] = [
     {
       id: "1",
-      title: "The Future of Web Development",
+      title: "Edge City: Builder Day",
       type: "speaker",
       event: "TechCrunch Disrupt 2024",
-      date: "March 15, 2024",
-      location: "San Francisco, CA",
+      date: "April 8. 2025",
+      location: "Innovation City, Cape Town",
       description:
-        "Delivered a keynote presentation on emerging web technologies and their impact on user experience. Discussed the evolution of React, Next.js, and the future of full-stack development.",
-      image: "/placeholder.svg?height=300&width=400",
-      attendees: 2500,
-      topics: ["React", "Next.js", "Web3", "AI"],
-      link: "https://techcrunch.com",
+        "D​Join our peak programming day as we explore South Africa's innovation ecosystem, build connections, showcase talent, and highlight opportunities to our global community—laying the groundwork for a potential Edge City flagship village in 2026.",
+      image: "/Events/edgecitypanel.jpg",
+      attendees: 198,
+      topics: ["Web3", "AI"],
+      link: "https://lu.ma/fy3vv0tg?tk=grQbjR",
       featured: true,
     },
     {
