@@ -10,6 +10,7 @@ import ScrollReveal from "./scroll-reveal"
 import StaggerChildren from "./stagger-children"
 import ParallaxLayer from "./parallax-layer"
 import { useState } from "react"
+import Image from "next/image"
 
 interface Event {
   id: string
@@ -199,9 +200,9 @@ export default function Events() {
             <motion.div variants={itemVariants} className="text-center mb-16">
               <h2 className="text-4xl font-bold text-white mb-4">Tech Community Involvement</h2>
               <p className="text-gray-400 max-w-3xl mx-auto">
-                Active participation in the tech community through speaking engagements, hosting events, and
+ {`               Active participation in the tech community through speaking engagements, hosting events, and
                 contributing to the developer ecosystem. Here's my journey in building and connecting with the tech
-                community.
+                community.`}
               </p>
             </motion.div>
 
@@ -266,7 +267,7 @@ export default function Events() {
                       }`}
                     >
                       <div className="lg:w-1/3 relative overflow-hidden group">
-                        <img
+                        <Image
                           src={event.image || "/placeholder.svg"}
                           alt={event.title}
                           className="w-full h-64 lg:h-full object-cover transition-transform duration-500 group-hover:scale-110"
@@ -348,10 +349,10 @@ export default function Events() {
                 variants={itemVariants}
                 className="mt-16 p-8 bg-[#131c31]/80 backdrop-blur-sm rounded-xl border border-blue-900/30 hover:border-blue-500/30 transition-all duration-300 text-center"
               >
-                <h3 className="text-2xl font-bold text-white mb-4">Let's Connect at the Next Event</h3>
+                <h3 className="text-2xl font-bold text-white mb-4">{`Let's Connect at the Next Event`}</h3>
                 <p className="text-gray-400 mb-6 max-w-2xl mx-auto">
-                  I'm always looking for opportunities to speak at conferences, host community events, or collaborate on
-                  tech initiatives. If you're organizing an event or looking for speakers, I'd love to hear from you.
+                  {`I'm always looking for opportunities to speak at conferences, host community events, or collaborate on
+                  tech initiatives. If you're organizing an event or looking for speakers, I'd love to hear from you.`}
                 </p>
                 <div className="flex flex-wrap justify-center gap-4">
                   <Button className="bg-blue-600 hover:bg-blue-700">
