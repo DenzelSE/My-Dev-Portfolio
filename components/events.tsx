@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion"
 import { useInView } from "react-intersection-observer"
-import { Calendar, MapPin, Users, Mic, Award, ExternalLink, Mail } from "lucide-react"
+import { Calendar, MapPin, Users, Mic, Award, ExternalLink, Mail, Play, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import AnimatedBackground from "./animated-background"
 import BackgroundPattern from "./background-patterns"
@@ -10,7 +10,6 @@ import ScrollReveal from "./scroll-reveal"
 import StaggerChildren from "./stagger-children"
 import ParallaxLayer from "./parallax-layer"
 import { useState } from "react"
-import Image from "next/image"
 
 interface Event {
   id: string
@@ -25,6 +24,10 @@ interface Event {
   topics?: string[]
   link?: string
   featured?: boolean
+  videoUrl?: string
+  youtubeId?: string
+  videoTitle?: string
+  videoDuration?: string
 }
 
 export default function Events() {
@@ -34,22 +37,26 @@ export default function Events() {
   })
 
   const [activeFilter, setActiveFilter] = useState<string>("all")
+  const [selectedVideo, setSelectedVideo] = useState<Event | null>(null)
 
   const events: Event[] = [
     {
       id: "1",
-      title: "Edge City: Builder Day",
+      title: "Edge City South Africa: Builder Day",
       type: "speaker",
-      event: "TechCrunch Disrupt 2024",
-      date: "April 8. 2025",
+      event: "Edge City Cape Town 2025",
+      date: "April 8, 2025",
       location: "Innovation City, Cape Town",
       description:
-        "D​Join our peak programming day as we explore South Africa's innovation ecosystem, build connections, showcase talent, and highlight opportunities to our global community—laying the groundwork for a potential Edge City flagship village in 2026.",
+        "Join our peak programming day as we explore South Africa's innovation ecosystem, build connections, showcase talent, and highlight opportunities to our global community—laying the groundwork for a potential Edge City flagship village in 2026.",
       image: "/Events/edgecitypanel.jpg",
       attendees: 198,
-      topics: ["Web3", "AI"],
+      topics:  ["Web3", "AI", "Blockchain","Ecosystems"],
       link: "https://lu.ma/fy3vv0tg?tk=grQbjR",
       featured: true,
+      youtubeId: "dQw4w9WgXcQ",
+      videoTitle: "Edge City South Africa: Builder Daye",
+      videoDuration: "00:00",
     },
     {
       id: "2",
@@ -64,6 +71,9 @@ export default function Events() {
       attendees: 1800,
       topics: ["React", "Performance", "Architecture"],
       link: "https://reactconf.com",
+      youtubeId: "jNQXAC9IVRw",
+      videoTitle: "Building Scalable React Applications - Panel Discussion",
+      videoDuration: "32:15",
     },
     {
       id: "3",
@@ -77,6 +87,9 @@ export default function Events() {
       image: "/placeholder.svg?height=300&width=400",
       attendees: 150,
       topics: ["JavaScript", "Networking", "Community"],
+      youtubeId: "9bZkp7q19f0",
+      videoTitle: "SF Tech Meetup - January 2024 Highlights",
+      videoDuration: "28:45",
     },
     {
       id: "4",
@@ -105,6 +118,9 @@ export default function Events() {
       attendees: 300,
       topics: ["Startups", "Entrepreneurship", "Venture Capital"],
       featured: true,
+      youtubeId: "ScMzIvxBSi4",
+      videoTitle: "Startup Pitch Competition - Best Moments",
+      videoDuration: "15:20",
     },
     {
       id: "6",
@@ -119,6 +135,9 @@ export default function Events() {
       attendees: 1200,
       topics: ["Open Source", "GitHub", "Community"],
       link: "https://githubuniverse.com",
+      youtubeId: "hFVj7Z7Z6nU",
+      videoTitle: "Getting Started with Open Source - GitHub Universe",
+      videoDuration: "25:10",
     },
   ]
 
@@ -181,6 +200,39 @@ export default function Events() {
     },
   }
 
+  const VideoModal = ({ event, onClose }: { event: Event; onClose: () => void }) => {
+    if (!event.youtubeId && !event.videoUrl) return null
+
+    return (
+      <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div className="bg-[#131c31] rounded-xl overflow-hidden max-w-4xl w-full max-h-[90vh] flex flex-col">
+          <div className="flex items-center justify-between p-4 border-b border-blue-900/30">
+            <div>
+              <h3 className="text-lg font-semibold text-white">{event.videoTitle || event.title}</h3>
+              <p className="text-sm text-gray-400">{event.event}</p>
+            </div>
+            <Button variant="ghost" size="sm" onClick={onClose} className="text-gray-400 hover:text-white">
+              <X className="w-5 h-5" />
+            </Button>
+          </div>
+          <div className="aspect-video">
+            {event.youtubeId ? (
+              <iframe
+                src={`https://www.youtube.com/embed/${event.youtubeId}?autoplay=1`}
+                title={event.videoTitle || event.title}
+                className="w-full h-full"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            ) : event.videoUrl ? (
+              <video src={event.videoUrl} controls autoPlay className="w-full h-full object-cover" />
+            ) : null}
+          </div>
+        </div>
+      </div>
+    )
+  }
+
   return (
     <section id="events" className="relative py-20 bg-[#0a1020] overflow-hidden">
       <AnimatedBackground variant="gradient" />
@@ -200,7 +252,7 @@ export default function Events() {
             <motion.div variants={itemVariants} className="text-center mb-16">
               <h2 className="text-4xl font-bold text-white mb-4">Tech Community Involvement</h2>
               <p className="text-gray-400 max-w-3xl mx-auto">
- {`               Active participation in the tech community through speaking engagements, hosting events, and
+                {`Active participation in the tech community through speaking engagements, hosting events, and
                 contributing to the developer ecosystem. Here's my journey in building and connecting with the tech
                 community.`}
               </p>
@@ -232,18 +284,22 @@ export default function Events() {
 
             {/* Stats Section */}
             <ScrollReveal direction="up" delay={0.3}>
-              <motion.div variants={itemVariants} className="grid grid-cols-2 md:grid-cols-3 gap-6 mb-16">
+              <motion.div variants={itemVariants} className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
                 <div className="bg-[#131c31]/80 backdrop-blur-sm p-6 rounded-xl border border-blue-900/30 text-center">
-                  <div className="text-3xl font-bold text-blue-500 mb-2">+3</div>
+                  <div className="text-3xl font-bold text-blue-500 mb-2">12+</div>
                   <div className="text-gray-400 text-sm">Speaking Events</div>
                 </div>
                 <div className="bg-[#131c31]/80 backdrop-blur-sm p-6 rounded-xl border border-green-900/30 text-center">
-                  <div className="text-3xl font-bold text-green-500 mb-2">10</div>
+                  <div className="text-3xl font-bold text-green-500 mb-2">8</div>
                   <div className="text-gray-400 text-sm">Events Hosted</div>
                 </div>
                 <div className="bg-[#131c31]/80 backdrop-blur-sm p-6 rounded-xl border border-purple-900/30 text-center">
-                  <div className="text-3xl font-bold text-amber-500 mb-2">25+</div>
+                  <div className="text-3xl font-bold text-purple-500 mb-2">25+</div>
                   <div className="text-gray-400 text-sm">Events Attended</div>
+                </div>
+                <div className="bg-[#131c31]/80 backdrop-blur-sm p-6 rounded-xl border border-orange-900/30 text-center">
+                  <div className="text-3xl font-bold text-orange-500 mb-2">5K+</div>
+                  <div className="text-gray-400 text-sm">People Reached</div>
                 </div>
               </motion.div>
             </ScrollReveal>
@@ -267,17 +323,36 @@ export default function Events() {
                       }`}
                     >
                       <div className="lg:w-1/3 relative overflow-hidden group">
-                        <Image
+                        <img
                           src={event.image || "/placeholder.svg"}
                           alt={event.title}
                           className="w-full h-64 lg:h-full object-cover transition-transform duration-500 group-hover:scale-110"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-[#0a1020]/80 to-transparent"></div>
+
+                        {(event.youtubeId || event.videoUrl) && (
+                          <button
+                            onClick={() => setSelectedVideo(event)}
+                            className="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                          >
+                            <div className="bg-red-600 hover:bg-red-700 rounded-full p-4 transition-colors">
+                              <Play className="w-8 h-8 text-white ml-1" />
+                            </div>
+                          </button>
+                        )}
+
                         {event.featured && (
                           <div className="absolute top-4 left-4 bg-blue-500 text-white px-3 py-1 rounded-full text-xs font-medium">
                             Featured
                           </div>
                         )}
+
+                        {event.videoDuration && (
+                          <div className="absolute bottom-4 left-4 bg-black/80 text-white px-2 py-1 rounded text-xs font-medium">
+                            {event.videoDuration}
+                          </div>
+                        )}
+
                         <div
                           className={`absolute top-4 right-4 px-3 py-1 rounded-full text-xs font-medium border flex items-center gap-1 ${getTypeColor(
                             event.type,
@@ -291,16 +366,27 @@ export default function Events() {
                       <div className="lg:w-2/3 p-8 flex flex-col justify-center">
                         <div className="flex flex-wrap items-center gap-4 mb-4">
                           <h3 className="text-2xl font-bold text-white">{event.title}</h3>
-                          {event.link && (
-                            <a
-                              href={event.link}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="text-blue-500 hover:text-blue-400 transition-colors"
-                            >
-                              <ExternalLink className="w-5 h-5" />
-                            </a>
-                          )}
+                          <div className="flex items-center gap-2">
+                            {(event.youtubeId || event.videoUrl) && (
+                              <button
+                                onClick={() => setSelectedVideo(event)}
+                                className="text-red-500 hover:text-red-400 transition-colors flex items-center gap-1 text-sm"
+                              >
+                                <Play className="w-4 h-4" />
+                                Watch
+                              </button>
+                            )}
+                            {event.link && (
+                              <a
+                                href={event.link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-blue-500 hover:text-blue-400 transition-colors"
+                              >
+                                <ExternalLink className="w-5 h-5" />
+                              </a>
+                            )}
+                          </div>
                         </div>
 
                         <div className="text-blue-400 font-medium mb-2">{event.event}</div>
@@ -359,7 +445,10 @@ export default function Events() {
                     <Mail className="w-4 h-4 mr-2" />
                     Invite Me to Speak
                   </Button>
-                  <Button variant="outline" className="border-blue-500 text-blue-500 hover:bg-blue-500/10">
+                  <Button
+                    variant="outline"
+                    className="border-blue-500 text-blue-500 hover:bg-blue-500/10 bg-transparent"
+                  >
                     <Calendar className="w-4 h-4 mr-2" />
                     View Speaking Topics
                   </Button>
@@ -369,6 +458,8 @@ export default function Events() {
           </motion.div>
         </ScrollReveal>
       </div>
+
+      {selectedVideo && <VideoModal event={selectedVideo} onClose={() => setSelectedVideo(null)} />}
     </section>
   )
 }
