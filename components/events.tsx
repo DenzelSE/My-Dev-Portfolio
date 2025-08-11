@@ -60,16 +60,16 @@ export default function Events() {
     },
     {
       id: "2",
-      title: "Building Scalable Applications",
+      title: "10 Years of Ethereum - Johannesburg Celebration 🎉",
       type: "speaker",
       event: "React Conference 2024",
-      date: "February 20, 2024",
-      location: "Austin, TX",
+      date: "July 30, 2025",
+      location: " La Parada Melrose Arch, Johannesburg",
       description:
-        "Panel discussion on best practices for building scalable React applications. Shared insights on performance optimization and state management strategies.",
-      image: "/placeholder.svg?height=300&width=400",
+        "Johannesburg crypto community will be marking Ethereum's 10th Anniversary in style and you're invited to join this special celebration.",
+      image: "/Events/eth10.jpg",
       attendees: 1800,
-      topics: ["React", "Performance", "Architecture"],
+      topics: ["Ethereum", "Web3", "Ecosystem", "Community"],
       link: "https://reactconf.com",
       youtubeId: "jNQXAC9IVRw",
       videoTitle: "Building Scalable React Applications - Panel Discussion",
@@ -282,7 +282,7 @@ export default function Events() {
               </motion.div>
             </ScrollReveal>
 
-            {/* Stats Section */}
+            {/* Stats Section
             <ScrollReveal direction="up" delay={0.3}>
               <motion.div variants={itemVariants} className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
                 <div className="bg-[#131c31]/80 backdrop-blur-sm p-6 rounded-xl border border-blue-900/30 text-center">
@@ -302,7 +302,7 @@ export default function Events() {
                   <div className="text-gray-400 text-sm">People Reached</div>
                 </div>
               </motion.div>
-            </ScrollReveal>
+            </ScrollReveal> */}
 
             {/* Events Grid */}
             <StaggerChildren staggerDelay={0.1}>
