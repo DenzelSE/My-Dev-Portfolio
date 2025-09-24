@@ -172,7 +172,7 @@ export default function Hero() {
             <div className="absolute inset-0 flex items-center justify-center">
               {/* <div className="w-[80%] h-[80%] rounded-full overflow-hidden border-4 border-blue-500/30"> */}
                 <Image
-                  src="/Denzel_Hero_bgremoved.png"
+                  src="/DenzelHero.png"
                   alt="Code editor with programming text"
                   className="w-full h-full object-cover"
                   width={300}
